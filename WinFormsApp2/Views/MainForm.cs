@@ -1,7 +1,7 @@
 using WinFormsApp2.Controllers;
 using System.Text;
 
-namespace WinFormsApp2.Views
+namespace WinFormsApp2.Viewspush le prpke
 {
     public partial class MainForm : Form
     {
