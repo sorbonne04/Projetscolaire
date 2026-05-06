@@ -1,4 +1,5 @@
 using WinFormsApp2.Enums;
+// Géré par : ETHAN
 
 namespace WinFormsApp2.Models
 {

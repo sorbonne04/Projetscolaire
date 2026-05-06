@@ -1,4 +1,6 @@
 using WinFormsApp2.Models;
+// Géré par : ETHAN
+
 using WinFormsApp2.Models;
 using WinFormsApp2.Enums;
 
