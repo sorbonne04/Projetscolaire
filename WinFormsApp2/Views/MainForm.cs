@@ -274,7 +274,16 @@ namespace WinFormsApp2.Views
                                    comboVehicule.SelectedIndex == 3 ? WinFormsApp2.Enums.TypeVehicule.Avion :
                                    WinFormsApp2.Enums.TypeVehicule.FauteuilRoulant;
 
+                var sexe = comboConducteur.SelectedIndex == 0 ? WinFormsApp2.Enums.Sexe.Homme : WinFormsApp2.Enums.Sexe.Femme;
+                var meteo = comboMeteo.SelectedIndex == 0 ? WinFormsApp2.Enums.EtatMeteoType.Sec :
+                            comboMeteo.SelectedIndex == 1 ? WinFormsApp2.Enums.EtatMeteoType.Pluie :
+                            comboMeteo.SelectedIndex == 2 ? WinFormsApp2.Enums.EtatMeteoType.Neige :
+                            comboMeteo.SelectedIndex == 3 ? WinFormsApp2.Enums.EtatMeteoType.Brouillard :
+                            WinFormsApp2.Enums.EtatMeteoType.Verglas;
+
                 controller.ChangerVehicule(typeVehicule);
+                controller.ChangerConducteur(sexe, (int)spinAge.Value, checkPermis.Checked, checkAlcool.Checked, checkFatigue.Checked);
+                controller.ChangerMeteo(meteo);
                 controller.ChangerVitesse(sliderVitesse.Value);
                 controller.ChangerDistanceMur(sliderDistance.Value);
                 controller.ExecuterSimulation();
@@ -296,7 +305,14 @@ namespace WinFormsApp2.Views
                 if (yaEuCollision)
                 {
                     sb.AppendLine();
-                    sb.AppendLine(">>> COLLISION DETECTEE <<<");
+                    if (typeVehicule == WinFormsApp2.Enums.TypeVehicule.Avion)
+                    {
+                        sb.AppendLine(">>> ATTENTAT REUSSI <<<");
+                    }
+                    else
+                    {
+                        sb.AppendLine(">>> COLLISION DETECTEE <<<");
+                    }
                 }
                 else
                 {
